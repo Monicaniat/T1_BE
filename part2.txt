@@ -1,0 +1,74 @@
+B. Part 2: Essay Questions (2.5 Grade):
+
+
+1. What is the difference between forEach and for...of? When would you use each? (0.5 Grade)
+
+forEach : A method used only on arrays that executes a callback function for every element.
+ It cannot be stopped early with break or continue.
+for...of: A loop statement used on all iterable objects (Arrays, Strings, Maps, Sets, etc.).
+ It can be stopped with break and skip iterations with continue.
+
+
+
+2. What is hoisting and what is the Temporal Dead Zone (TDZ)? Explain with examples. (0.5 Grade)
+
+Hoisting is JavaScript's way of moving declarations to the top of their current scope during the compilation phase.
+(Only the declaration is hoisted)
+
+ex: 
+console.log(animal); // Output: undefined
+var animal = "cat";
+console.log(animal);
+
+the second line will be moved to the top and the output will be undefined
+
+(after getting moved to the top)
+var animal; 
+console.log(animal);
+animal = "cat";
+console.log(animal);
+
+output: 
+Undefined
+Cat 
+
+A temporal dead zone (TDZ) is the area of a block where a variable is inaccessible
+until the moment the computer completely initializes it with a value.
+
+ex: 
+console.log(x) // ReferenceError - still in TDZ
+console.log(y) // ReferenceError - still in TDZ
+
+// TDZ continues...
+let x = 10 // ← x's TDZ ends at this line
+const y = 20 // ← y's TDZ ends at this line
+
+console.log(x) // 10 - can access now
+console.log(y) // 20 - can access now
+
+
+
+3. What are the main differences between == and ===? (0.5 Grade)
+
+Both of them check for the equality of the value of the data given but === is more strict and no type conversion is done
+
+
+
+4. Explain how try-catch works and why it is important in async operations. (0.5 Grade)
+
+try- catch is fundamental for error-handling mechanism as it is used to manage exceptions (runtime errors)
+that occur during code execution. 
+It is important in async operations as it is how errors traditionally behave in async contexts. 
+
+
+
+5. What’s the difference between type conversion and coercion? Provide examples of each. (0.5 Grade)
+
+Conversion: You Control the Change
+If you have the text "100", you use the command Number("100").
+The result is the actual number 100
+
+Coercion: The Computer Hides the Change
+This happens automatically when you mix two different types of data in an operation.
+ex: 5 + "3"
+it will turn the 5 into string printing out "53"
